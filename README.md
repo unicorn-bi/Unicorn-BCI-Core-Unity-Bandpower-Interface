@@ -14,7 +14,7 @@ Unity Bandpower Interface is a seamless Unity plugin designed for developers wor
 &nbsp;&nbsp;&nbsp;[Bandpower Bars](#bandpower-bars)<br>
 [Quickstart Guide](#quickstart-guide)<br/>
 [Deploy to Windows](#deploy-to-windows)<br/>
-[Deploy to macOs](#deploy-to-macos)<br/>
+[Deploy to macOS](#deploy-to-macos)<br/>
 [Deploy to Android](#deploy-to-android)<br/>
 
 # Prerequisites
@@ -34,7 +34,7 @@ Unity Bandpower Interface is a seamless Unity plugin designed for developers wor
 - Visual Studio<br> Microsoft Visual Studio 2022
 
 ### Mac
-- macOs 14.5+
+- macOS 14.5+
 - Unity<br>2022.3.56f1
 - Xcode<br>15.4
 - Command Line Tools for Xcode<br>15.3
@@ -47,7 +47,7 @@ Unity Bandpower Interface is a seamless Unity plugin designed for developers wor
 - NET Framework <br> .NET Framework 4.8
 
 ### Mac
-- macOs 14.5+
+- macOS 14.5+
 
 ### Android
 - SDK Version 31+
@@ -237,7 +237,7 @@ Ensure that all items are selected and click 'Import'.
 **Note:**<br>
 An Windows device is required to build for Windows
 
-## Deploy to macOs
+## Deploy to macOS
 
 1. Select 'macOS' as Target Platform.
 2. Select target architecture
@@ -248,11 +248,11 @@ An Windows device is required to build for Windows
 </p>
 
 **Note:**<br>
-A mac device is required to build for macOs
+A mac device is required to build for macOS
 
 ## Deploy to Android
 
-1. Select 'macOS' as Target Platform.
+1. Select 'Android' as Target Platform.
 2. Select target architecture
 3. Click 'Build'
 

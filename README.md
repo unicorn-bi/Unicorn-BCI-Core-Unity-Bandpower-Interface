@@ -22,7 +22,7 @@ Unity Bandpower Interface is a seamless Unity plugin designed for developers wor
 ## Hardware Requirements
 - Development: Windows or Mac computer
 - Deployment: Windows, Mac or Android device
-- Unicorn BCI Core 8
+- Unicorn BCI Core
 - Bluetooth adapter supporting Bluetooth 5
 
 ## Development

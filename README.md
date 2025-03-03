@@ -13,9 +13,9 @@ Unity Bandpower Interface is a seamless Unity plugin designed for developers wor
 &nbsp;&nbsp;&nbsp;[SQ Bar](#sq-bar)<br>
 &nbsp;&nbsp;&nbsp;[Bandpower Bars](#bandpower-bars)<br>
 [Quickstart Guide](#quickstart-guide)<br/>
-[Deploy to Windows]()<br/>
-[Deploy to macOs]()<br/>
-[Deploy to Android]()<br/>
+[Deploy to Windows](#deploy-to-windows)<br/>
+[Deploy to macOs](#deploy-to-macos)<br/>
+[Deploy to Android](#deploy-to-android)<br/>
 
 # Prerequisites
 
@@ -223,3 +223,42 @@ Ensure that all items are selected and click 'Import'.
 14. Wait until the device is discovered and click 'Connect'
 
 15. The bandpower bars should start moving and the signal quality bar should start changing colors
+
+## Deploy to Windows
+
+1. Select 'Windows' as Target Platform.
+2. Select target architecture
+3. Click 'Build'
+
+<p align="center">
+<img src="./img/unity12.png" alt="drawing" width="450"/><br/>
+</p>
+
+**Note:**<br>
+An Windows device is required to build for Windows
+
+## Deploy to macOs
+
+1. Select 'macOS' as Target Platform.
+2. Select target architecture
+3. Click 'Build'
+
+<p align="center">
+<img src="./img/unity14.png" alt="drawing" width="450"/><br/>
+</p>
+
+**Note:**<br>
+A mac device is required to build for macOs
+
+## Deploy to Android
+
+1. Select 'macOS' as Target Platform.
+2. Select target architecture
+3. Click 'Build'
+
+<p align="center">
+<img src="./img/unity13.png" alt="drawing" width="450"/><br/>
+</p>
+
+**Note:**<br>
+An Android device is required to build for Android

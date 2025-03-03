@@ -69,7 +69,7 @@ Unity Bandpower Interface is a seamless Unity plugin designed for developers wor
 
 It is possible to simulate good, floating or grounded EEG using the simulator devices. It is also possible to simulate alpha activity using the simulator devices.
 
-### Advanced Settings
+#### Advanced Settings
 
 <p align="center">
 <img src="./img/unity5.png" alt="drawing" width="400"/><br/>
@@ -96,63 +96,97 @@ $$ ThetaBetaRatio =  {theta \over beta} $$
 $$ ThetaBetaAlphaRatio =  {theta \over alpha + beta} $$
 $$ EngagementIndex =  {beta \over theta + alpha} $$
 
-## Events
+### Events
 
 The device prefab provides an event system as an interface to unity.
 
-### OnDevicesAvailable
+#### OnDevicesAvailable
 The event called when devices are discovered. Available devices are provided as list of strings.
 <br>Event data: List&#x003c;string&#x003e;
 
-### OnDeviceStateChanged
+#### OnDeviceStateChanged
 The event called when device state changed. Th current device state is provided as 'State' enum.
 <br>Event data: List&#x003c;State&#x003e;
 
-### OnPipelineStateChanged
+#### OnPipelineStateChanged
 The event called when a signal rocessing pipeline state changed. The current state is provided as string.
 <br>Event data: string
 
-### OnRuntimeExceptionOccured
+#### OnRuntimeExceptionOccured
 The event called when a runtime exception occured. The Exception is provided as 'Exception' object.
 <br>Event data: Exception
 
-### OnBandpowerAvailable
+#### OnBandpowerAvailable
 The event called when bandpower values for each channel individually are available. The frequency of the event is affected by the buffer settings and bandpower ranges set in the [Advanced Settings](#advanced-settings). Data is provided as Dictionary with the frequency band name as Key (delta, theta, alpha, beta-low, beta-mid, beta-hig, gamma) and the bandpower values as double array as value.
 <br>Event data: Dictionary&#x003c;string, double[]&#x003e;
 
-### OnMeanBandpowerAvailable
+#### OnMeanBandpowerAvailable
 The event called when averaged bandpower values over all channels are available. The frequency of the event is affected by the buffer settings and bandpower ranges set in the [Advanced Settings](#advanced-settings). Data is provided as Dictionary with the frequency band name as Key (delta, theta, alpha, beta-low, beta-mid, beta-hig, gamma) and the bandpower value as double value.
 <br>Event data: Dictionary&#x003c;string, double&#x003e;
 
-### OnRatiosAvailable
+#### OnRatiosAvailable
 The event called when bandpower ratios for each channel individually are available. The frequency of the event is affected by the buffer settings and bandpower ranges set in the [Advanced Settings](#advanced-settings). Data is provided as Dictionary with the bandpower ratio name as Key (PowerRatioIndex, DeltaAlphaRatio, ThetaAlphaRatio, ThetaBetaRatio, ThetaBetaAlphaRatio, EngagementIndex) and the bandpower ratios as double array as value.
 <br>Event data: Dictionary&#x003c;string, double[]&#x003e;
 
-### OnMeanRatiosAvailable
+#### OnMeanRatiosAvailable
 The event called when averaged bandpower ratios over all channels are available. The frequency of the event is affected by the buffer settings and bandpower ranges set in the [Advanced Settings](#advanced-settings). Data is provided as Dictionary with the bandpower ratio name as Key (PowerRatioIndex, DeltaAlphaRatio, ThetaAlphaRatio, ThetaBetaRatio, ThetaBetaAlphaRatio, EngagementIndex) and the bandpower ratio as double value.
 <br>Event data: Dictionary&#x003c;string, double&#x003e;
 
-### OnSignalQualityAvailable
+#### OnSignalQualityAvailable
 The event called when new signal quality values are available.
 <br>Event data: List&#x003c;ChannelStates&#x003e;
 
-### OnBatteryLevelAvailable
+#### OnBatteryLevelAvailable
 The event called when battery level data is available.
 <br>Event data: float
 
-### OnDataLost
+#### OnDataLost
 The event called when data is lost.
 <br>Event data: None
 
+### Connection Dialog
+
+The connection dialog prefab is a very simple pre defined connection dialog featuring a dropdown menu to select devices and a button to connect to a device or disconnect from a device. Drag this object into your scene ans a child object of the [device](#device) object to automatically connect events or connect via the unity event system.
+
+<p align="center">
+<img src="./img/unity8.png" alt="drawing" width="750"/><br/>
+</p>
+
+### Logger
+
+The logger prefab is a logging module writing messages provided by the [device](#device). Drag this object into your scene ans a child object of the [device](#device) object to automatically connect events or connect via the unity event system.
+
+<p align="center">
+<img src="./img/unity9.png" alt="drawing" width="750"/><br/>
+</p>
+
+### SQ Bar
+
+The sq bar prefab is a simple module visualizing the eeg signal quality. Drag this object into your scene ans a child object of the [device](#device) object to automatically connect events or connect via the unity event system.
+
+<p align="center">
+<img src="./img/unity6.png" alt="drawing" width="750"/><br/>
+</p>
+
+### Bandpower Bars
+
+The sq bar prefab is a simple module visualizing the averaged bandpower values. Drag this object into your scene ans a child object of the [device](#device) object to automatically connect events or connect via the unity event system.
+
+<p align="center">
+<img src="./img/unity7.png" alt="drawing" width="750"/><br/>
+</p>
+
 ## Quickstart Guide
 
-1. Create a new Unity Project
+1. Open Unity Hub on your Windows or Mac
+
+2. Create a new Unity Project
 
 <p align="center">
 <img src="./img/unity1.png" alt="drawing" width="750"/><br/>
 </p>
 
-2. Import the Unity Bandpower Interface unity package.<br>
+4. Import the Unity Bandpower Interface unity package.<br>
 Click Assets -> Import Package -> Custom Package... -> load .unitypackage<br>
 Ensure that all items are selected and click 'Import'.
 
@@ -160,10 +194,32 @@ Ensure that all items are selected and click 'Import'.
 <img src="./img/unity2.png" alt="drawing" width="200"/><br/>
 </p>
 
-3. Open Assets -> Plugins -> gtec -> Bandpower -> Prefabs and drag the [device](#device) Prefab into your Scene
+5. Open Assets -> Plugins -> gtec -> Bandpower -> Prefabs.
+
+6. Drag the [device](#device) prefab into your scene.
+
+7. Drag the [connection dialog](#connection-dialog) prefab into your scene.
+
+8. Drag the [logger](#logger) prefab into your scene.
+
+9. Drag the [sq bar](#sq-bar) prefab into your scene.
+
+10. Drag the [bandpower bars](#bandpower-bars) prefab into your scene.
 
 <p align="center">
-<img src="./img/unity3.png" alt="drawing" width="750"/><br/>
+<img src="./img/unity10.png" alt="drawing" width="750"/><br/>
 </p>
 
-4. 
+11. Set the 'Type' setting is set to 'Unicorn BCI Core' or 'All Devices'
+
+12. Turn your Unicorn BCI Core device on
+
+13. Click the Play Button in the Unity Editor
+
+<p align="center">
+<img src="./img/unity11.png" alt="drawing" width="750"/><br/>
+</p>
+
+14. Wait until the device is discovered and click 'Connect'
+
+15. The bandpower bars should start moving and the signal quality bar should start changing colors

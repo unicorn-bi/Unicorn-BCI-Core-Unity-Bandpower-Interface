@@ -81,7 +81,7 @@ It is possible to modify the buffersize and buffer overlap used for bandpower ca
 
 $$ f_{bandpower} =  {1 \over {(buffersize - bufferoverlap) \over samplingrate}} $$
 
-#### Frequency Ranges
+#### Frequencyband Settings
 
 The Unity Bandpower interface is estimating bandpower for various frequency bands. It is possible to modify the cutoff frequencies of each calculated frequency band in the advanced settings.
 
@@ -95,6 +95,10 @@ $$ ThetaAlphaRatio =  {theta \over alpha} $$
 $$ ThetaBetaRatio =  {theta \over beta} $$
 $$ ThetaBetaAlphaRatio =  {theta \over alpha + beta} $$
 $$ EngagementIndex =  {beta \over theta + alpha} $$
+
+#### EEG Data Settings
+
+It is possible to set the output data rate of EEG in the EEG Data Settings. Data is buffered and output as [samples, channels] array to match the defined output data rate.
 
 ### Events
 
@@ -143,6 +147,10 @@ The event called when battery level data is available.
 #### OnDataLost
 The event called when data is lost.
 <br>Event data: None
+
+#### OnEEGDataAvailable
+The event called when raw data is available
+<br>Event data: Dictionary&#x003c;Rawdata&#x003e;
 
 ### Connection Dialog
 

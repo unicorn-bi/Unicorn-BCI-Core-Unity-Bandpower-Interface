@@ -16,8 +16,9 @@ Unity Bandpower Interface is a seamless Unity plugin designed for developers wor
 [Deploy to Windows](#deploy-to-windows)<br/>
 [Deploy to macOS](#deploy-to-macos)<br/>
 [Deploy to Android](#deploy-to-android)<br/>
-[Troubleshooting](#troubleshooting)
-
+[Troubleshooting](#troubleshooting)<br/>
+&nbsp;&nbsp;&nbsp;[Android: No activity in the Android manifest](#android-no-activity-in-the-android-manifest)<br/>
+&nbsp;&nbsp;&nbsp;[macOs: libgtecble.dylib is blocked](#macos-libgtecbledylib-is-blocked)<br/>
 # Prerequisites
 
 ## Hardware Requirements

@@ -16,6 +16,7 @@ Unity Bandpower Interface is a seamless Unity plugin designed for developers wor
 [Deploy to Windows](#deploy-to-windows)<br/>
 [Deploy to macOS](#deploy-to-macos)<br/>
 [Deploy to Android](#deploy-to-android)<br/>
+[Troubleshooting](#troubleshooting)
 
 # Prerequisites
 
@@ -270,3 +271,77 @@ A mac device is required to build for macOS
 
 **Note:**<br>
 An Android device is required to build for Android
+
+## Troubleshooting
+
+### Android: No activity in the Android manifest
+The Android manifest might look different for different Unity versions. It's recommended to use Unity 2022.3.56f1. If you want to go with your Unity version you can try to create a new Android manifest.
+
+1. Delete the installed Android manifest ```Assets/Plugins/Android/AndroidManifest.xml```
+2. Create a new manifest by clicking ```Edit -> Project Settings -> Player -> Publishing Settings -> Custom Main Manifest```
+3. A new Android manifest should have been created at ```Assets/Plugins/Android/AndroidManifest.xml```.
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <application>
+        <activity android:name="com.unity3d.player.UnityPlayerActivity"
+                  android:theme="@style/UnityThemeSelector"
+				  android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <meta-data android:name="unityplayer.UnityActivity" android:value="true" />
+        </activity>
+    </application>
+</manifest>
+
+```
+
+4. Do not modify the ```<application>``` section. Add the required permissions to the Adnroid manifest. 
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+	<uses-permission android:name="android.permission.BLUETOOTH" />
+	<uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+	<uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+	<uses-permission android:name="android.permission.BLUETOOTH_SCAN" android:usesPermissionFlags="neverForLocation" />s
+
+	<uses-feature android:name="android.hardware.bluetooth" android:required="true"/>
+	<uses-feature android:name="android.hardware.bluetooth_le" android:required="true"/>
+	
+    <application>
+        <activity android:name="com.unity3d.player.UnityPlayerActivity"
+                  android:theme="@style/UnityThemeSelector"
+				  android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <meta-data android:name="unityplayer.UnityActivity" android:value="true" />
+        </activity>
+    </application>
+</manifest>
+
+```
+
+### macOs: libgtecble.dylib is blocked
+
+The library interacting with the device might be blocked on macOs, even if the library is signed.
+
+<p align="center">
+<img src="./img/unity15.png" alt="drawing" width="250"/><br/>
+</p>
+
+To allow the library being used click ```Settings -> Privacy & Security -> Allow Anyway```. It should be possible to load libgtecble.dylib in uUnity now.
+
+<p align="center">
+<img src="./img/unity16.png" alt="drawing" width="450"/><br/>
+</p>
